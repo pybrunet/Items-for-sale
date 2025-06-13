@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Items for Sale - Best Prices Available</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f8fafc;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .current-bid {
+            background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+            color: white;
+            padding: 8px 12px;
+            border-radius: 6px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            text-align: center;
+        }
+
+        .bid-info {
+            background: #f0f9ff;
+            border: 1px solid #0ea5e9;
+            border-radius: 6px;
+            padding: 0.75rem;
+            margin-bottom: 1rem;
+            font-size: 0.85rem;
+        }
+
+        .bid-count {
+            color: #0ea5e9;
+            font-weight: 600;
+        }
+
+        .time-left {
+            color: #dc2626;
+            font-weight: 500;
+            font-size: 0.8rem;
+        }
+
+        header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .subtitle {
+            font-size: 1.2rem;
+            font-weight: 300;
+            opacity: 0.9;
+        }
+
+        .contact-info {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin-top: 1.5rem;
+            text-align: center;
+        }
+
+        .contact-info h3 {
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+
+        .contact-info p {
+            margin: 0.3rem 0;
+            font-size: 0.95rem;
+        }
+
+        .contact-info a {
+            color: white;
+            text-decoration: none;
+        }
+
+        .contact-info a:hover {
+            text-decoration: underline;
+        }
+
+        .items-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            padding: 3rem 0;
+        }
+
+        .item-card {
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.07);
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .item-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        .item-image {
+            width: 100%;
+            height: 300px;
+            object-fit: contain;
+            object-position: center;
+            background-color: #f8f9fa;
+        }
+
+        .item-content {
+            padding: 1.5rem;
+        }
+
+        .item-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: #2d3748;
+        }
+
+        .item-description {
+            color: #718096;
+            margin-bottom: 1rem;
+            line-height: 1.5;
+        }
+
+        .price-section {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+
+        .suggested-price {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #667eea;
+        }
+
+        .obo-text {
+            font-size: 0.9rem;
+            color: #718096;
+            font-style: italic;
+        }
+
+        .make-offer-btn {
+            width: 100%;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .make-offer-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
+        }
+
+        .google-sheets-section {
+            background: white;
+            margin: 3rem 0;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.07);
+            text-align: center;
+        }
+
+        .google-sheets-section h2 {
+            color: #2d3748;
+            margin-bottom: 1rem;
+        }
+
+        .google-sheets-section p {
+            color: #718096;
+            margin-bottom: 1.5rem;
+        }
+
+        .bid-instructions {
+            background: #f0f9ff;
+            border: 1px solid #0ea5e9;
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            text-align: left;
+        }
+
+        .bid-instructions h3 {
+            color: #0ea5e9;
+            margin-bottom: 1rem;
+        }
+
+        .bid-instructions ol {
+            margin-left: 1.5rem;
+            color: #4b5563;
+        }
+
+        .bid-instructions li {
+            margin-bottom: 0.5rem;
+        }
+
+        .google-form-btn {
+            display: inline-block;
+            background: #34d399;
+            color: white;
+            text-decoration: none;
+            padding: 12px 32px;
+            border-radius: 8px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .google-form-btn:hover {
+            background: #10b981;
+            transform: translateY(-2px);
+        }
+
+        footer {
+            background: #2d3748;
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+            margin-top: 3rem;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2rem;
+            }
+            
+            .items-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+            
+            .price-section {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 0.5rem;
+            }
+
+            .contact-info {
+                padding: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Quality Items for Sale</h1>
+            <p class="subtitle">Great prices on baby items, home goods, and more!</p>
+            <div class="contact-info">
+                <h3>Contact Pierre-Yves Brunet</h3>
+                <p><strong>Phone:</strong> <a href="https://wa.me/13058734235">305-873-4235</a> (WhatsApp preferred)</p>
+                <p><strong>Email:</strong> <a href="mailto:py@pybrunet.com">py@pybrunet.com</a></p>
+                <p><strong>About me:</strong> <a href="https://pybrunet.com" target="_blank">pybrunet.com</a></p>
+                <p><strong>Location:</strong> Costa Del Sol, Doral, FL 33178</p>
+            </div>
+        </div>
+    </header>
+
+    <main class="container">
+        <div class="items-grid">
+            <!-- Area Rug -->
+            <div class="item-card">
+                <img src="Rug1.JPG" alt="Area Rug" class="item-image">
+                <div class="item-content">
+                    <h3 class="item-title">Area Rug</h3>
+                    <div class="current-bid">Current Highest Bid: $194.00</div>
+                    <div class="bid-info">
+                        <span class="bid-count">7 bids placed</span> • <span class="time-left">Bidding closes in 3 days</span>
+                    </div>
+                    <p class="item-description">Beautiful area rug by Ruggable in excellent condition. Easily washable and good for kids to crawl on. Adds warmth and style to any room. No stains or wear, pet-free home.<br><br>
+                    <small><a href="https://ruggable.com/collections/living-room-rugs#ss.filter.ss_size=8'x10'&ss.filter.ss_system_type=Cushioned%20Pad%20System" target="_blank" style="color: #667eea;">📋 View similar rugs by Ruggable</a></small></p>
+                    <div class="price-section">
+                        <span class="suggested-price">Suggested price $499.99</span>
+                        <span class="obo-text">or best offer</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Car Seat -->
+            <div class="item-card">
+                <img src="Carseat4.jpg" alt="Car Seat" class="item-image">
+                <div class="item-content">
+                    <h3 class="item-title">Child Car Seat</h3>
+                    <div class="current-bid">Current Highest Bid: $56.00</div>
+                    <div class="bid-info">
+                        <span class="bid-count">4 bids placed</span> • <span class="time-left">Bidding closes in 2 days</span>
+                    </div>
+                    <p class="item-description">Safe and comfortable car seat for 0-3 year olds. Never been in an accident, all safety features intact. Meets all current safety standards.<br><br>
+                    <small><a href="https://fromrebel.com/products/4ever-dlx-4-in-1-convertible-car-seat-fairmont-49a1a0" target="_blank" style="color: #667eea;">📋 View similar 4-in-1 convertible car seats</a></small></p>
+                    <div class="price-section">
+                        <span class="suggested-price">Suggested price $149.99</span>
+                        <span class="obo-text">or best offer</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Dyson Air Purifier -->
+            <div class="item-card">
+                <img src="dyson.jpg" alt="Dyson Pure Cool Link Tower Air Purifier" class="item-image">
+                <div class="item-content">
+                    <h3 class="item-title">Dyson Pure Cool Link™ Tower Air Purifier</h3>
+                    <div class="current-bid">Current Highest Bid: $164.00</div>
+                    <div class="bid-info">
+                        <span class="bid-count">9 bids placed</span> • <span class="time-left">Bidding closes in 1 day</span>
+                    </div>
+                    <p class="item-description">Dyson Pure Cool Link™ tower TP02 purifier fan in excellent condition. Intelligently purifies and cools, with sealed HEPA filter. Exludes remote control but can easily obtained online.<br><br>
+                    <small><a href="https://www.dyson.com/air-treatment/air-purifiers/pure-cool-link-tower-tp02/white-silver" target="_blank" style="color: #667eea;">📋 View Dyson Pure Cool Link Tower specifications</a></small></p>
+                    <div class="price-section">
+                        <span class="suggested-price">Suggested price $429.99</span>
+                        <span class="obo-text">or best offer</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- LEVOIT Air Purifier -->
+            <div class="item-card">
+                <img src="Air_Purifier.jpg" alt="LEVOIT Air Purifier" class="item-image">
+                <div class="item-content">
+                    <h3 class="item-title">LEVOIT Air Purifier</h3>
+                    <div class="current-bid">Current Highest Bid: $30.00</div>
+                    <div class="bid-info">
+                        <span class="bid-count">3 bids placed</span> • <span class="time-left">Bidding closes in 2 days</span>
+                    </div>
+                    <p class="item-description">High-quality LEVOIT air purifier in excellent condition. Perfect for bedrooms or small living spaces.<br><br>
+                    <small><a href="https://www.ebay.com/itm/334744145184" target="_blank" style="color: #667eea;">📋 View similar LEVOIT air purifiers</a></small></p>
+                    <div class="price-section">
+                        <span class="suggested-price">Suggested price $79.90</span>
+                        <span class="obo-text">or best offer</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Baby Bottles -->
+            <div class="item-card">
+                <img src="Baby_Bottles.jpg" alt="Baby Bottles Set" class="item-image">
+                <div class="item-content">
+                    <h3 class="item-title">Baby bottle sanitizer</h3>
+                    <div class="current-bid">Current Highest Bid: $14.00</div>
+                    <div class="bid-info">
+                        <span class="bid-count">2 bids placed</span> • <span class="time-left">Bidding closes in 4 days</span>
+                    </div>
+                    <p class="item-description">Complete set of baby bottle sanitixer in great condition. Perfect for new parents.<br><br>
+                    <small><a href="https://www.amazon.com/BOLOLO-Sterilizer-Comprehensive-Sanitizer-Accessories/dp/B0DKSJT636" target="_blank" style="color: #667eea;">📋 View baby bottle sterilizers</a></small></p>
+                    <div class="price-section">
+                        <span class="suggested-price">Suggested price $39.99</span>
+                        <span class="obo-text">or best offer</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Coffee Maker -->
+            <div class="item-card">
+                <img src="Coffe1.jpg" alt="Coffee Maker" class="item-image">
+                <div class="item-content">
+                    <h3 class="item-title">Coffee Maker</h3>
+                    <div class="current-bid">Current Highest Bid: $7.40</div>
+                    <div class="bid-info">
+                        <span class="bid-count">1 bid placed</span> • <span class="time-left">Bidding closes in 5 days</span>
+                    </div>
+                    <p class="item-description">Premium coffee maker in excellent working condition. Makes perfect coffee every time.</p>
+                    <div class="price-section">
+                        <span class="suggested-price">Suggested price $19.99</span>
+                        <span class="obo-text">or best offer</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Diapers -->
+            <div class="item-card">
+                <img src="Diaper.jpg" alt="Diaper Pack" class="item-image">
+                <div class="item-content">
+                    <h3 class="item-title">Diaper Pack</h3>
+                    <div class="current-bid">Current Highest Bid: $12.80</div>
+                    <div class="bid-info">
+                        <span class="bid-count">2 bids placed</span> • <span class="time-left">Bidding closes in 3 days</span>
+                    </div>
+                    <p class="item-description">Perfect to put dirty diapers of growing babies, in a compact environment that contains all the dirty smell.<br><br>
+                    <small><a href="https://www.amazon.com/Diaper-Genie-Complete-Assembled-Technology/dp/B0713M8Z5L" target="_blank" style="color: #667eea;">📋 View Diaper Genie disposal systems</a></small></p>
+                    <div class="price-section">
+                        <span class="suggested-price">Suggested price $34.99</span>
+                        <span class="obo-text">or best offer</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Humidifier -->
+            <div class="item-card">
+                <img src="Humidifyer.jpg" alt="Humidifier" class="item-image">
+                <div class="item-content">
+                    <h3 class="item-title">Humidifier</h3>
+                    <div class="current-bid">Current Highest Bid: $15.20</div>
+                    <div class="bid-info">
+                        <span class="bid-count">3 bids placed</span> • <span class="time-left">Bidding closes in 2 days</span>
+                    </div>
+                    <p class="item-description">Quiet ultrasonic humidifier perfect for bedrooms or nurseries. Multiple mist settings and auto shut-off feature. Like new condition.<br><br>
+                    <small><a href="https://www.amazon.com/LEVOIT-Humidifiers-Ultrasonic-Humidifier-Essential/dp/B07WKZVWRD" target="_blank" style="color: #667eea;">📋 View similar LEVOIT humidifiers</a></small></p>
+                    <div class="price-section">
+                        <span class="suggested-price">Suggested price $39.99</span>
+                        <span class="obo-text">or best offer</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Sleep Product -->
+            <div class="item-card">
+                <img src="Sleep.jpg" alt="Sleep Aid Product" class="item-image">
+                <div class="item-content">
+                    <h3 class="item-title">Sleep Aid Product</h3>
+                    <div class="current-bid">Current Highest Bid: $9.00</div>
+                    <div class="bid-info">
+                        <span class="bid-count">1 bid placed</span> • <span class="time-left">Bidding closes in 6 days</span>
+                    </div>
+                    <p class="item-description">High-quality sleep aid product in excellent condition. Helps promote better rest and relaxation. Gently used, all components included.</p>
+                    <div class="price-section">
+                        <span class="suggested-price">Suggested price $24.99</span>
+                        <span class="obo-text">or best offer</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Items for Sale. All items sold as-is. Serious inquiries only.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Add smooth scrolling for better UX
+        document.addEventListener('DOMContentLoaded', function() {
+            // Add loading animation for images
+            const images = document.querySelectorAll('.item-image');
+            images.forEach(img => {
+                img.addEventListener('load', function() {
+                    this.style.opacity = '1';
+                });
+            });
+        });
+    </script>
+</body>
+</html> 
