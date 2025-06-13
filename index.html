@@ -177,6 +177,10 @@
                 height: 300px;
             }
         }
+
+        html {
+            scroll-behavior: smooth;
+        }
     </style>
 </head>
 <body>
@@ -191,13 +195,13 @@
                 <p><a href="mailto:py@pybrunet.com">py@pybrunet.com</a></p>
                 <p><a href="https://pybrunet.com" target="_blank">pybrunet.com</a></p>
             </div>
-            <img src="Dyson.jpg" alt="Featured Item" class="main-image">
+            <a href="#dyson-item"><img src="Dyson.jpg" alt="Featured Item" class="main-image"></a>
         </div>
     </header>
 
     <main class="container">
         <div class="items-grid">
-            <div class="item">
+            <div class="item" id="dyson-item">
                 <img src="Dyson.jpg" alt="Dyson" class="item-image">
                 <div class="item-details">
                     <h2 class="item-title">Dyson Pure Cool Link™ Tower Air Purifier</h2>
@@ -207,8 +211,8 @@
                 </div>
             </div>
 
-            <div class="item">
-                <img src="Air_Purifier.jpg" alt="Air Purifier" class="item-image">
+            <div class="item" id="levoit-purifier-item">
+                <a href="#humidifier-item"><img src="Air_Purifier.jpg" alt="Air Purifier" class="item-image"></a>
                 <div class="item-details">
                     <h2 class="item-title">LEVOIT Air Purifier</h2>
                     <p class="item-description">High-quality LEVOIT air purifier in excellent condition. Perfect for bedrooms or small living spaces. Multiple fan speeds and quiet operation.</p>
@@ -217,8 +221,8 @@
                 </div>
             </div>
 
-            <div class="item">
-                <img src="Baby_Bottles.jpg" alt="Baby Bottles" class="item-image">
+            <div class="item" id="bottle-sanitizer-item">
+                <a href="#bottle-sanitizer-item"><img src="Baby_Bottles.jpg" alt="Baby Bottles" class="item-image"></a>
                 <div class="item-details">
                     <h2 class="item-title">Baby Bottle Sterilizer</h2>
                     <p class="item-description">Complete set of baby bottle sterilizer in great condition. Perfect for new parents. Includes all accessories and instructions.</p>
@@ -227,8 +231,8 @@
                 </div>
             </div>
 
-            <div class="item">
-                <img src="Carseat4.jpg" alt="Car Seat" class="item-image">
+            <div class="item" id="car-seat-item">
+                <a href="#car-seat-item"><img src="Carseat4.jpg" alt="Car Seat" class="item-image"></a>
                 <div class="item-details">
                     <h2 class="item-title">Child Car Seat</h2>
                     <p class="item-description">Safe and comfortable car seat for 0-3 year olds. Never been in an accident, all safety features intact. Meets all current safety standards.</p>
@@ -247,7 +251,7 @@
                 </div>
             </div>
 
-            <div class="item">
+            <div class="item" id="diaper-genie-item">
                 <img src="Diaper.jpg" alt="Diaper Bag" class="item-image">
                 <div class="item-details">
                     <h2 class="item-title">Diaper Genie</h2>
@@ -257,8 +261,8 @@
                 </div>
             </div>
 
-            <div class="item">
-                <img src="Humidifyer.jpg" alt="Humidifier" class="item-image">
+            <div class="item" id="humidifier-item">
+                <a href="#humidifier-item"><img src="Humidifyer.jpg" alt="Humidifier" class="item-image"></a>
                 <div class="item-details">
                     <h2 class="item-title">LEVOIT Humidifier</h2>
                     <p class="item-description">Quiet ultrasonic humidifier perfect for bedrooms or nurseries. Multiple mist settings and auto shut-off feature. Like new condition.</p>
@@ -267,7 +271,7 @@
                 </div>
             </div>
 
-            <div class="item">
+            <div class="item" id="rug-item">
                 <img src="Rug1.JPG" alt="Area Rug" class="item-image">
                 <div class="item-details">
                     <h2 class="item-title">Area Rug</h2>
@@ -277,7 +281,7 @@
                 </div>
             </div>
 
-            <div class="item">
+            <div class="item" id="sleep-aid-item">
                 <img src="Sleep.jpg" alt="Sleep Aid" class="item-image">
                 <div class="item-details">
                     <h2 class="item-title">Sleep Aid</h2>
