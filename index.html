@@ -92,27 +92,32 @@
             box-shadow: 0 8px 32px rgba(52, 152, 219, 0.13);
             border: 1.5px solid #3498db;
         }
-        .item-image {
+        .image-container {
             width: 100%;
             max-width: 400px;
-            height: 300px;
-            object-fit: contain;
-            border-radius: 10px;
-            margin-bottom: 18px;
+            aspect-ratio: 4 / 3;
             background: #f8f9fa;
+            border-radius: 10px;
             box-shadow: 0 2px 8px rgba(52, 152, 219, 0.04);
             border: 1px solid #e3eaf3;
-            display: block;
-            min-height: 280px;
-            min-width: 200px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 18px;
             padding: 10px;
             box-sizing: border-box;
         }
-        .samsung-tv-image {
-            object-fit: contain;
-            max-height: 280px;
-            width: auto;
+        .item-image {
             max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+            border-radius: 8px;
+            background: transparent;
+            box-shadow: none;
+            border: none;
+            display: block;
+            margin: 0;
+            padding: 0;
         }
         .item-card a {
             text-decoration: none;
@@ -176,6 +181,8 @@
                 max-width: 100%;
             }
         }
+        /* Remove special-case image CSS */
+        .samsung-tv-image, .table-image { all: unset; }
     </style>
 </head>
 <body>
@@ -192,7 +199,9 @@
             <div class="items-grid">
                 <div class="item-card">
                     <a href="https://www.dyson.com/air-treatment/air-purifiers/pure-cool-link-tower-tp02/white-silver" target="_blank">
-                        <img src="dyson.jpg" alt="Dyson Pure Cool Link™ Tower Air Purifier" class="item-image">
+                        <div class="image-container">
+                            <img src="dyson.jpg" alt="Dyson Pure Cool Link™ Tower Air Purifier" class="item-image">
+                        </div>
                     </a>
                     <div class="item-title">Dyson Pure Cool Link™ Tower Air Purifier</div>
                     <div class="item-price">Suggested price: $430</div>
@@ -201,7 +210,9 @@
                 </div>
                 <div class="item-card">
                     <a href="https://www.ebay.com/itm/334744145184" target="_blank">
-                        <img src="purifier.jpg" alt="LEVOIT air purifier" class="item-image">
+                        <div class="image-container">
+                            <img src="purifier.jpg" alt="LEVOIT air purifier" class="item-image">
+                        </div>
                     </a>
                     <div class="item-title">LEVOIT air purifier</div>
                     <div class="item-price">Suggested price: $80</div>
@@ -210,7 +221,9 @@
                 </div>
                 <div class="item-card">
                     <a href="https://www.amazon.com/BOLOLO-Sterilizer-Comprehensive-Sanitizer-Accessories/dp/B0DKSJT636" target="_blank">
-                        <img src="bottle_sanitizer.jpg" alt="Baby bottle sterilizers" class="item-image">
+                        <div class="image-container">
+                            <img src="bottle_sanitizer.jpg" alt="Baby bottle sterilizers" class="item-image">
+                        </div>
                     </a>
                     <div class="item-title">Baby bottle sterilizers</div>
                     <div class="item-price">Suggested price: $40</div>
@@ -219,7 +232,9 @@
                 </div>
                 <div class="item-card">
                     <a href="https://fromrebel.com/products/4ever-dlx-4-in-1-convertible-car-seat-fairmont-49a1a0" target="_blank">
-                        <img src="carseat.jpg" alt="Graco car seat" class="item-image">
+                        <div class="image-container">
+                            <img src="carseat.jpg" alt="Graco car seat" class="item-image">
+                        </div>
                     </a>
                     <div class="item-title">Graco car seat</div>
                     <div class="item-price">Suggested price: $250</div>
@@ -228,7 +243,9 @@
                 </div>
                 <div class="item-card">
                     <a href="https://www.amazon.com/s?k=coffee+maker" target="_blank">
-                        <img src="coffee.jpg" alt="Coffee maker" class="item-image">
+                        <div class="image-container">
+                            <img src="coffee.jpg" alt="Coffee maker" class="item-image">
+                        </div>
                     </a>
                     <div class="item-title">Coffee maker</div>
                     <div class="item-price">Suggested price: $20</div>
@@ -237,7 +254,9 @@
                 </div>
                 <div class="item-card">
                     <a href="https://www.amazon.com/Diaper-Genie-Complete-Assembled-Technology/dp/B0713M8Z5L" target="_blank">
-                        <img src="diaper_container.jpg" alt="Diaper Genie disposal systems" class="item-image">
+                        <div class="image-container">
+                            <img src="diaper_container.jpg" alt="Diaper Genie disposal systems" class="item-image">
+                        </div>
                     </a>
                     <div class="item-title">Diaper Genie disposal systems</div>
                     <div class="item-price">Suggested price: $35</div>
@@ -246,7 +265,9 @@
                 </div>
                 <div class="item-card">
                     <a href="https://www.amazon.com/LEVOIT-Humidifiers-Ultrasonic-Humidifier-Essential/dp/B07WKZVWRD" target="_blank">
-                        <img src="humidifier.jpg" alt="LEVOIT humidifiers" class="item-image">
+                        <div class="image-container">
+                            <img src="humidifier.jpg" alt="LEVOIT humidifiers" class="item-image">
+                        </div>
                     </a>
                     <div class="item-title">LEVOIT humidifiers</div>
                     <div class="item-price">Suggested price: $40</div>
@@ -255,7 +276,9 @@
                 </div>
                 <div class="item-card">
                     <a href="https://ruggable.com/collections/living-room-rugs#ss.filter.ss_size=8'x10'&ss.filter.ss_system_type=Cushioned%20Pad%20System" target="_blank">
-                        <img src="rug.jpg" alt="Rug by Ruggable" class="item-image">
+                        <div class="image-container">
+                            <img src="rug.jpg" alt="Rug by Ruggable" class="item-image">
+                        </div>
                     </a>
                     <div class="item-title">Rug by Ruggable</div>
                     <div class="item-price">Suggested price: $520</div>
@@ -264,7 +287,9 @@
                 </div>
                 <div class="item-card">
                     <a href="https://www.amazon.com/s?k=sleep+aid+white+noise+machine" target="_blank">
-                        <img src="sleep.jpg" alt="Sleeping items" class="item-image">
+                        <div class="image-container">
+                            <img src="sleep.jpg" alt="Sleeping items" class="item-image">
+                        </div>
                     </a>
                     <div class="item-title">Sleeping items</div>
                     <div class="item-price">Suggested price: $25</div>
@@ -273,7 +298,9 @@
                 </div>
                 <div class="item-card">
                     <a href="https://www.amazon.com/s?k=medical+booth+privacy+screen" target="_blank">
-                        <img src="medical_booth.jpg" alt="Medical Booth" class="item-image">
+                        <div class="image-container">
+                            <img src="medical_booth.jpg" alt="Medical Booth" class="item-image">
+                        </div>
                     </a>
                     <div class="item-title">Medical Booth</div>
                     <div class="item-price">Suggested price: $300</div>
@@ -282,7 +309,9 @@
                 </div>
                 <div class="item-card">
                     <a href="https://www.amazon.com/s?k=goose+down+comforter" target="_blank">
-                        <img src="Goose_Comforter.jpg" alt="Goose Down Comforter" class="item-image">
+                        <div class="image-container">
+                            <img src="Goose_Comforter.jpg" alt="Goose Down Comforter" class="item-image">
+                        </div>
                     </a>
                     <div class="item-title">Goose Down Comforter</div>
                     <div class="item-price">Suggested price: $150</div>
@@ -291,7 +320,9 @@
                 </div>
                 <div class="item-card">
                     <a href="https://www.amazon.com/s?k=premium+pillow+set" target="_blank">
-                        <img src="Pillow1.jpg" alt="Premium Pillow Set" class="item-image">
+                        <div class="image-container">
+                            <img src="Pillow1.jpg" alt="Premium Pillow Set" class="item-image">
+                        </div>
                     </a>
                     <div class="item-title">Premium Pillow Set</div>
                     <div class="item-price">Suggested price: $80</div>
@@ -300,7 +331,9 @@
                 </div>
                 <div class="item-card">
                     <a href="https://www.amazon.com/s?k=memory+foam+pillow" target="_blank">
-                        <img src="Pillow2.jpg" alt="Memory Foam Pillow" class="item-image">
+                        <div class="image-container">
+                            <img src="Pillow2.jpg" alt="Memory Foam Pillow" class="item-image">
+                        </div>
                     </a>
                     <div class="item-title">Memory Foam Pillow</div>
                     <div class="item-price">Suggested price: $60</div>
@@ -309,7 +342,9 @@
                 </div>
                 <div class="item-card">
                     <a href="https://www.amazon.com/s?k=dream+cloud+mattress" target="_blank">
-                        <img src="Dream_Cloud_Mattress.jpg" alt="Dream Cloud Mattress" class="item-image">
+                        <div class="image-container">
+                            <img src="Dream_Cloud_Mattress.jpg" alt="Dream Cloud Mattress" class="item-image">
+                        </div>
                     </a>
                     <div class="item-title">Dream Cloud Mattress</div>
                     <div class="item-price">Suggested price: $800</div>
@@ -318,7 +353,9 @@
                 </div>
                 <div class="item-card">
                     <a href="https://www.amazon.com/s?k=round+dining+table" target="_blank">
-                        <img src="Round_Table.jpg" alt="Round Dining Table" class="item-image">
+                        <div class="image-container">
+                            <img src="Round_Table.jpg" alt="Round Dining Table" class="item-image">
+                        </div>
                     </a>
                     <div class="item-title">Round Dining Table</div>
                     <div class="item-price">Suggested price: $200</div>
@@ -327,7 +364,9 @@
                 </div>
                 <div class="item-card">
                     <a href="https://www.amazon.com/s?k=dining+table" target="_blank">
-                        <img src="Table.jpg" alt="Dining Table" class="item-image">
+                        <div class="image-container">
+                            <img src="Table.jpg" alt="Dining Table" class="item-image table-image">
+                        </div>
                     </a>
                     <div class="item-title">Dining Table</div>
                     <div class="item-price">Suggested price: $180</div>
@@ -336,7 +375,9 @@
                 </div>
                 <div class="item-card">
                     <a href="https://www.amazon.com/s?k=premium+pillow" target="_blank">
-                        <img src="Pillow3.jpg" alt="Premium Pillow" class="item-image">
+                        <div class="image-container">
+                            <img src="Pillow3.jpg" alt="Premium Pillow" class="item-image">
+                        </div>
                     </a>
                     <div class="item-title">Premium Pillow</div>
                     <div class="item-price">Suggested price: $70</div>
@@ -345,7 +386,9 @@
                 </div>
                 <div class="item-card">
                     <a href="https://www.amazon.com/s?k=samsung+tv" target="_blank">
-                        <img src="Samsung_TV.jpg" alt="Samsung - 60" Class Q60B QLED 4K Smart Tizen TV" class="item-image samsung-tv-image">
+                        <div class="image-container">
+                            <img src="Samsung_TV.jpg" alt="Samsung - 60" Class Q60B QLED 4K Smart Tizen TV" class="item-image samsung-tv-image">
+                        </div>
                     </a>
                     <div class="item-title">Samsung - 60" Class Q60B QLED 4K Smart Tizen TV</div>
                     <div class="item-price">Suggested price: $400</div>
@@ -354,7 +397,9 @@
                 </div>
                 <div class="item-card">
                     <a href="https://www.amazon.com/s?k=trek+bicycle" target="_blank">
-                        <img src="Trek_Bicycle.jpg" alt="Trek Bicycle for Tall People" class="item-image">
+                        <div class="image-container">
+                            <img src="Trek_Bicycle.jpg" alt="Trek Bicycle for Tall People" class="item-image">
+                        </div>
                     </a>
                     <div class="item-title">Trek Bicycle for Tall People</div>
                     <div class="item-price">Suggested price: $600</div>
@@ -363,7 +408,9 @@
                 </div>
                 <div class="item-card">
                     <a href="https://www.amazon.com/s?k=purple+mattress" target="_blank">
-                        <img src="Purple_Mattress.jpg" alt="Purple Mattress" class="item-image">
+                        <div class="image-container">
+                            <img src="Purple_Mattress.jpg" alt="Purple Mattress" class="item-image">
+                        </div>
                     </a>
                     <div class="item-title">Purple Mattress</div>
                     <div class="item-price">Suggested price: $900</div>
