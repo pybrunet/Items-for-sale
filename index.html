@@ -119,6 +119,19 @@
             margin: 0;
             padding: 0;
         }
+        .item-image:not([src]), .item-image[src=""], .item-image[src*="undefined"] {
+            background: #f0f0f0;
+            border: 2px dashed #ccc;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #666;
+            font-size: 14px;
+            text-align: center;
+        }
+        .item-image:not([src])::after, .item-image[src=""]::after, .item-image[src*="undefined"]::after {
+            content: "Image not found";
+        }
         .item-card a {
             text-decoration: none;
             color: inherit;
@@ -184,6 +197,49 @@
         /* Remove special-case image CSS */
         .samsung-tv-image, .table-image { display: unset; }
     </style>
+    <script>
+        // Debug script to identify missing images
+        document.addEventListener('DOMContentLoaded', function() {
+            const images = document.querySelectorAll('.item-image');
+            let missingImages = [];
+            
+            images.forEach(function(img, index) {
+                img.addEventListener('error', function() {
+                    console.error('Image failed to load:', this.src);
+                    missingImages.push({
+                        src: this.src,
+                        alt: this.alt,
+                        index: index
+                    });
+                    this.style.background = '#ffebee';
+                    this.style.border = '2px dashed #f44336';
+                    this.style.color = '#d32f2f';
+                    this.style.display = 'flex';
+                    this.style.alignItems = 'center';
+                    this.style.justifyContent = 'center';
+                    this.style.fontSize = '12px';
+                    this.style.textAlign = 'center';
+                    this.style.padding = '10px';
+                    this.style.boxSizing = 'border-box';
+                    this.textContent = 'Image not found: ' + this.src.split('/').pop();
+                });
+                
+                img.addEventListener('load', function() {
+                    console.log('Image loaded successfully:', this.src);
+                });
+            });
+            
+            // Log summary after a delay
+            setTimeout(function() {
+                if (missingImages.length > 0) {
+                    console.warn('Missing images found:', missingImages);
+                    alert('Found ' + missingImages.length + ' missing images. Check console for details.');
+                } else {
+                    console.log('All images loaded successfully!');
+                }
+            }, 2000);
+        });
+    </script>
 </head>
 <body>
     <div class="container">
@@ -387,12 +443,12 @@
                 <div class="item-card">
                     <a href="https://www.amazon.com/s?k=samsung+tv" target="_blank">
                         <div class="image-container">
-                            <img src="Samsung_TV.jpg" alt="Samsung - 60&quot; Class Q60B QLED 4K Smart Tizen TV" class="item-image">
+                            <img src="Samsung_TV.jpg" alt="Brand new Samsung - 60&quot; Class Q60B QLED 4K Smart Tizen TV" class="item-image">
                         </div>
                     </a>
-                    <div class="item-title">Samsung - 60" Class Q60B QLED 4K Smart Tizen TV</div>
-                    <div class="item-price">Suggested price: $400</div>
-                    <div class="item-bid">Highest bid: $240</div>
+                    <div class="item-title">Brand new Samsung - 60&quot; Class Q60B QLED 4K Smart Tizen TV</div>
+                    <div class="item-price">Suggested price: $700</div>
+                    <div class="item-bid">Highest bid: $420</div>
                     <a href="https://www.amazon.com/s?k=samsung+tv" class="item-link" target="_blank">View on Amazon</a>
                 </div>
                 <div class="item-card">
