@@ -104,6 +104,15 @@
             border: 1px solid #e3eaf3;
             display: block;
         }
+        .item-card a {
+            text-decoration: none;
+            color: inherit;
+        }
+        .item-card a:hover .item-image {
+            box-shadow: 0 4px 16px rgba(52, 152, 219, 0.12);
+            border: 1.5px solid #3498db;
+            transition: box-shadow 0.2s, border 0.2s;
+        }
         .item-title {
             font-size: 1.4em;
             font-weight: 600;
@@ -168,91 +177,117 @@
         <main>
             <div class="items-grid">
                 <div class="item-card">
-                    <img src="dyson.jpg" alt="Dyson Pure Cool Link™ Tower Air Purifier" class="item-image">
+                    <a href="https://www.dyson.com/air-treatment/air-purifiers/pure-cool-link-tower-tp02/white-silver" target="_blank">
+                        <img src="dyson.jpg" alt="Dyson Pure Cool Link™ Tower Air Purifier" class="item-image">
+                    </a>
                     <div class="item-title">Dyson Pure Cool Link™ Tower Air Purifier</div>
                     <div class="item-price">Suggested price: $430</div>
                     <div class="item-bid">Highest bid: $258</div>
                     <a href="https://www.dyson.com/air-treatment/air-purifiers/pure-cool-link-tower-tp02/white-silver" class="item-link" target="_blank">View on Dyson</a>
                 </div>
                 <div class="item-card">
-                    <img src="purifier.jpg" alt="LEVOIT air purifier" class="item-image">
+                    <a href="https://www.ebay.com/itm/334744145184" target="_blank">
+                        <img src="purifier.jpg" alt="LEVOIT air purifier" class="item-image">
+                    </a>
                     <div class="item-title">LEVOIT air purifier</div>
                     <div class="item-price">Suggested price: $80</div>
                     <div class="item-bid">Highest bid: $48</div>
                     <a href="https://www.ebay.com/itm/334744145184" class="item-link" target="_blank">View on eBay</a>
                 </div>
                 <div class="item-card">
-                    <img src="bottle_sanitizer.jpg" alt="Baby bottle sterilizers" class="item-image">
+                    <a href="https://www.amazon.com/BOLOLO-Sterilizer-Comprehensive-Sanitizer-Accessories/dp/B0DKSJT636" target="_blank">
+                        <img src="bottle_sanitizer.jpg" alt="Baby bottle sterilizers" class="item-image">
+                    </a>
                     <div class="item-title">Baby bottle sterilizers</div>
                     <div class="item-price">Suggested price: $40</div>
                     <div class="item-bid">Highest bid: $24</div>
                     <a href="https://www.amazon.com/BOLOLO-Sterilizer-Comprehensive-Sanitizer-Accessories/dp/B0DKSJT636" class="item-link" target="_blank">View on Amazon</a>
                 </div>
                 <div class="item-card">
-                    <img src="carseat.jpg" alt="Graco car seat" class="item-image">
+                    <a href="https://fromrebel.com/products/4ever-dlx-4-in-1-convertible-car-seat-fairmont-49a1a0" target="_blank">
+                        <img src="carseat.jpg" alt="Graco car seat" class="item-image">
+                    </a>
                     <div class="item-title">Graco car seat</div>
                     <div class="item-price">Suggested price: $250</div>
                     <div class="item-bid">Highest bid: $150</div>
                     <a href="https://fromrebel.com/products/4ever-dlx-4-in-1-convertible-car-seat-fairmont-49a1a0" class="item-link" target="_blank">View on FromRebel</a>
                 </div>
                 <div class="item-card">
-                    <img src="coffee.jpg" alt="Coffee maker" class="item-image">
+                    <a href="https://www.amazon.com/s?k=coffee+maker" target="_blank">
+                        <img src="coffee.jpg" alt="Coffee maker" class="item-image">
+                    </a>
                     <div class="item-title">Coffee maker</div>
                     <div class="item-price">Suggested price: $20</div>
                     <div class="item-bid">Highest bid: $12</div>
                     <a href="https://www.amazon.com/s?k=coffee+maker" class="item-link" target="_blank">View on Amazon</a>
                 </div>
                 <div class="item-card">
-                    <img src="diaper_container.jpg" alt="Diaper Genie disposal systems" class="item-image">
+                    <a href="https://www.amazon.com/Diaper-Genie-Complete-Assembled-Technology/dp/B0713M8Z5L" target="_blank">
+                        <img src="diaper_container.jpg" alt="Diaper Genie disposal systems" class="item-image">
+                    </a>
                     <div class="item-title">Diaper Genie disposal systems</div>
                     <div class="item-price">Suggested price: $35</div>
                     <div class="item-bid">Highest bid: $21</div>
                     <a href="https://www.amazon.com/Diaper-Genie-Complete-Assembled-Technology/dp/B0713M8Z5L" class="item-link" target="_blank">View on Amazon</a>
                 </div>
                 <div class="item-card">
-                    <img src="humidifier.jpg" alt="LEVOIT humidifiers" class="item-image">
+                    <a href="https://www.amazon.com/LEVOIT-Humidifiers-Ultrasonic-Humidifier-Essential/dp/B07WKZVWRD" target="_blank">
+                        <img src="humidifier.jpg" alt="LEVOIT humidifiers" class="item-image">
+                    </a>
                     <div class="item-title">LEVOIT humidifiers</div>
                     <div class="item-price">Suggested price: $40</div>
                     <div class="item-bid">Highest bid: $24</div>
                     <a href="https://www.amazon.com/LEVOIT-Humidifiers-Ultrasonic-Humidifier-Essential/dp/B07WKZVWRD" class="item-link" target="_blank">View on Amazon</a>
                 </div>
                 <div class="item-card">
-                    <img src="rug.jpg" alt="Rug by Ruggable" class="item-image">
+                    <a href="https://ruggable.com/collections/living-room-rugs#ss.filter.ss_size=8'x10'&ss.filter.ss_system_type=Cushioned%20Pad%20System" target="_blank">
+                        <img src="rug.jpg" alt="Rug by Ruggable" class="item-image">
+                    </a>
                     <div class="item-title">Rug by Ruggable</div>
                     <div class="item-price">Suggested price: $520</div>
                     <div class="item-bid">Highest bid: $312</div>
                     <a href="https://ruggable.com/collections/living-room-rugs#ss.filter.ss_size=8'x10'&ss.filter.ss_system_type=Cushioned%20Pad%20System" class="item-link" target="_blank">View on Ruggable</a>
                 </div>
                 <div class="item-card">
-                    <img src="sleep.jpg" alt="Sleeping items" class="item-image">
+                    <a href="https://www.amazon.com/s?k=sleep+aid+white+noise+machine" target="_blank">
+                        <img src="sleep.jpg" alt="Sleeping items" class="item-image">
+                    </a>
                     <div class="item-title">Sleeping items</div>
                     <div class="item-price">Suggested price: $25</div>
                     <div class="item-bid">Highest bid: $15</div>
                     <a href="https://www.amazon.com/s?k=sleep+aid+white+noise+machine" class="item-link" target="_blank">View on Amazon</a>
                 </div>
                 <div class="item-card">
-                    <img src="Medical_Booth.jpg" alt="Medical Booth" class="item-image">
+                    <a href="https://www.amazon.com/s?k=medical+booth+privacy+screen" target="_blank">
+                        <img src="Medical_Booth.jpg" alt="Medical Booth" class="item-image">
+                    </a>
                     <div class="item-title">Medical Booth</div>
                     <div class="item-price">Suggested price: $300</div>
                     <div class="item-bid">Highest bid: $180</div>
                     <a href="https://www.amazon.com/s?k=medical+booth+privacy+screen" class="item-link" target="_blank">View on Amazon</a>
                 </div>
                 <div class="item-card">
-                    <img src="Goose_Comforter.jpg" alt="Goose Down Comforter" class="item-image">
+                    <a href="https://www.amazon.com/s?k=goose+down+comforter" target="_blank">
+                        <img src="Goose_Comforter.jpg" alt="Goose Down Comforter" class="item-image">
+                    </a>
                     <div class="item-title">Goose Down Comforter</div>
                     <div class="item-price">Suggested price: $150</div>
                     <div class="item-bid">Highest bid: $90</div>
                     <a href="https://www.amazon.com/s?k=goose+down+comforter" class="item-link" target="_blank">View on Amazon</a>
                 </div>
                 <div class="item-card">
-                    <img src="Pillow1.jpg" alt="Premium Pillow Set" class="item-image">
+                    <a href="https://www.amazon.com/s?k=premium+pillow+set" target="_blank">
+                        <img src="Pillow1.jpg" alt="Premium Pillow Set" class="item-image">
+                    </a>
                     <div class="item-title">Premium Pillow Set</div>
                     <div class="item-price">Suggested price: $80</div>
                     <div class="item-bid">Highest bid: $48</div>
                     <a href="https://www.amazon.com/s?k=premium+pillow+set" class="item-link" target="_blank">View on Amazon</a>
                 </div>
                 <div class="item-card">
-                    <img src="Pillow2.jpg" alt="Memory Foam Pillow" class="item-image">
+                    <a href="https://www.amazon.com/s?k=memory+foam+pillow" target="_blank">
+                        <img src="Pillow2.jpg" alt="Memory Foam Pillow" class="item-image">
+                    </a>
                     <div class="item-title">Memory Foam Pillow</div>
                     <div class="item-price">Suggested price: $60</div>
                     <div class="item-bid">Highest bid: $36</div>
